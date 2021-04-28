@@ -92,25 +92,30 @@ public class conexion {
         return modelo;
     }
     
-    public ArrayList<String> form3(int a){
-        ArrayList<String> cadena= new ArrayList();        
+    public Object form3(int a){
+       Object cadena[] = new Object[8];     
         
         try{
-            
         CallableStatement entrada = conectar().prepareCall("{call spSelectCuenta("+a+")}");
         ResultSet rs = entrada.executeQuery();
-        while(rs.next()){
-                cadena.set(2, rs.getString(6));
-            }
+        while(rs.next()){  
         CallableStatement entrada2 = conectar().prepareCall("{call spSelectBanco("+rs.getString(1)+")}");
         ResultSet rs2 = entrada2.executeQuery();
         while(rs2.next()){
-                cadena.set(0, rs2.getString(2));
+
+                cadena[0]=rs2.getString(2);
             }
+        System.out.println(cadena[0]);
         CallableStatement entrada3 = conectar().prepareCall("{call spSelectMoneda("+rs.getString(3)+")}");
         ResultSet rs3 = entrada3.executeQuery();
         while(rs3.next()){
-                cadena.set(1, rs3.getString(2));
+                cadena[1]=rs3.getString(2);
+            }
+        System.out.println(cadena[1]);
+        
+        
+                cadena[2]=rs.getString(5);
+                System.out.println(rs.getString(5));
             }
         }catch(SQLException E){
             E.printStackTrace();

@@ -20,9 +20,9 @@ public class formulario3 extends javax.swing.JFrame {
     }
         public void MostrarTablaProductos(){
         conexion pre = new conexion(); 
-        textbanco.setText((pre.form3(Integer.parseInt(idCuenta.getText()))).get(0));
-        textmoneda.setText((pre.form3(Integer.parseInt(idCuenta.getText()))).get(1));
-        textsaldo.setText((pre.form3(Integer.parseInt(idCuenta.getText()))).get(2));
+        textbanco.setText((pre.form3(Integer.parseInt(idCuenta.getText()))));
+       // textmoneda.setText((pre.form3(Integer.parseInt(idCuenta.getText()))).get(1));
+        //textsaldo.setText((pre.form3(Integer.parseInt(idCuenta.getText()))).get(2));
         
     }
     /**

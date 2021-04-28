@@ -144,4 +144,73 @@ public class conexion {
         return cadena;
     }    
 
+    public String form4_banco(int a){
+       String cadena="";     
+        try{
+        CallableStatement entrada = conectar().prepareCall("{call spSelectDeposito("+a+")}");
+        ResultSet rs = entrada.executeQuery();
+        while(rs.next()){  
+            CallableStatement entrada2 = conectar().prepareCall("{call spSelectBanco("+rs.getString(1)+")}");
+            ResultSet rs2 = entrada2.executeQuery();
+            while(rs2.next()){
+                cadena=rs2.getString(2);
+            }
+            }
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return cadena;
+    }
+    public String form4_cuenta(int a){
+       String cadena="";     
+        try{
+        CallableStatement entrada = conectar().prepareCall("{call spSelectDeposito("+a+")}");
+        ResultSet rs = entrada.executeQuery();
+        while(rs.next()){  
+                cadena=rs.getString(2);
+            }
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return cadena;
+    }
+    public String form4_fecha(int a){
+       String cadena="";     
+        try{
+        CallableStatement entrada = conectar().prepareCall("{call spSelectDeposito("+a+")}");
+        ResultSet rs = entrada.executeQuery();
+        while(rs.next()){  
+                cadena=rs.getString(4);
+            }
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return cadena;
+    }
+    public String form4_concepto(int a){
+       String cadena="";     
+        try{
+        CallableStatement entrada = conectar().prepareCall("{call spSelectDeposito("+a+")}");
+        ResultSet rs = entrada.executeQuery();
+        while(rs.next()){  
+                cadena=rs.getString(5);
+            }
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return cadena;
+    }
+    public String form4_valor(int a){
+       String cadena="";     
+        try{
+        CallableStatement entrada = conectar().prepareCall("{call spSelectDeposito("+a+")}");
+        ResultSet rs = entrada.executeQuery();
+        while(rs.next()){  
+                cadena=rs.getString(6);
+            }
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return cadena;
+    }
 }

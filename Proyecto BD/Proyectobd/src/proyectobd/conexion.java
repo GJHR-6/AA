@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -61,28 +62,28 @@ public class conexion {
         return modelo;
     }
     
-    public DefaultTableModel form3(int a){
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("No. de Cuenta");
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Moneda");
-        modelo.addColumn("Saldo");
-        
+    public ArrayList<String> form3(int a){
+        ArrayList<String> cadena= new ArrayList();        
         try{
             
         CallableStatement entrada = conectar().prepareCall("{call spSelectCuenta("+a+")}");
         ResultSet rs = entrada.executeQuery();
         while(rs.next()){
-                Object dato[] = new Object[4];
-                for(int i = 0; i<4; i++){
-                    dato[i] = rs.getString(i+1);
-                    System.out.println(dato[i].toString());
-                }
-                modelo.addRow(dato);
-            }    
+                cadena.set(2, rs.getString(6));
+            }
+        CallableStatement entrada2 = conectar().prepareCall("{call spSelectBanco("+rs.getString(1)+")}");
+        ResultSet rs2 = entrada2.executeQuery();
+        while(rs2.next()){
+                cadena.set(0, rs2.getString(2));
+            }
+        CallableStatement entrada3 = conectar().prepareCall("{call spSelectMoneda("+rs.getString(3)+")}");
+        ResultSet rs3 = entrada3.executeQuery();
+        while(rs3.next()){
+                cadena.set(1, rs3.getString(2));
+            }
         }catch(SQLException E){
             E.printStackTrace();
         }
-        return modelo;
+        return cadena;
     }
 }

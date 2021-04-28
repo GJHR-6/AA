@@ -13,10 +13,10 @@ public class Proyectobd {
     /**
      * @param args the command line arguments
      */
-    connection cnn;
+
     public static void main(String[] args) {
         // TODO code application logic here
-        cnn = conexion.conectar(); 
+      
         menu m = new menu();
         m.setVisible(true);
     }

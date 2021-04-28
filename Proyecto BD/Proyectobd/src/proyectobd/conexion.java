@@ -37,20 +37,50 @@ public class conexion {
             return null;
         }
 }
- //   public int 
+    
     public DefaultTableModel mostrar(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ArticuloID");
         modelo.addColumn("Nombre");
         modelo.addColumn("Cantidad");
         modelo.addColumn("Subtotal");
+        modelo.addColumn("Descuento");
+        modelo.addColumn("Impuesto");
+        modelo.addColumn("Total");
         
         try{
             CallableStatement cmd = conectar().prepareCall("select * from v1 ");
             ResultSet rs = cmd.executeQuery();
             while(rs.next()){
-                Object dato[] = new Object[4];
-                for(int i = 0; i<4; i++){
+                Object dato[] = new Object[7];
+                for(int i = 0; i<7; i++){
+                    dato[i] = rs.getString(i+1);
+                }
+                modelo.addRow(dato);
+            }
+            
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return modelo;
+    }
+    public DefaultTableModel mostrar1(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("CompraID");
+        modelo.addColumn("ProveedorID");
+        modelo.addColumn("NombreProv");
+        modelo.addColumn("Fecha");
+        modelo.addColumn("Subtotal");
+        modelo.addColumn("Descuento");
+        modelo.addColumn("Impuesto");
+        modelo.addColumn("Total");
+        
+        try{
+            CallableStatement cmd = conectar().prepareCall("select * from v2 ");
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next()){
+                Object dato[] = new Object[8];
+                for(int i = 0; i<8; i++){
                     dato[i] = rs.getString(i+1);
                 }
                 modelo.addRow(dato);
@@ -64,6 +94,7 @@ public class conexion {
     
     public ArrayList<String> form3(int a){
         ArrayList<String> cadena= new ArrayList();        
+        
         try{
             
         CallableStatement entrada = conectar().prepareCall("{call spSelectCuenta("+a+")}");

@@ -105,9 +105,7 @@ public class conexion {
         }
         return cadena;
     }
-    
-    
-     public String form3_banco(int a){
+    public String form3_banco(int a){
        String cadena="";     
         try{
         CallableStatement entrada = conectar().prepareCall("{call spSelectCuenta("+a+")}");
@@ -125,8 +123,7 @@ public class conexion {
         }
         return cadena;
     }
-    
-         public String form3_moneda(int a){
+    public String form3_moneda(int a){
        String cadena="";     
         try{
         CallableStatement entrada = conectar().prepareCall("{call spSelectCuenta("+a+")}");
@@ -213,4 +210,59 @@ public class conexion {
         }
         return cadena;
     }
+    
+    public DefaultTableModel form5(int a){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Dirección");
+        modelo.addColumn("Estado Civil");
+        modelo.addColumn("Sexo");
+        modelo.addColumn("Limite");
+        modelo.addColumn("Saldo");
+        
+        try{
+            CallableStatement cmd = conectar().prepareCall("select * from dbo.SaldoClientedia("+a+")");
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next()){
+                Object dato[] = new Object[7];
+                for(int i = 0; i<7; i++){
+                    dato[i] = rs.getString(i+1);
+                }
+                modelo.addRow(dato);
+            }
+            
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return modelo;
+    }
+    
+    public DefaultTableModel form6(int a){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("RTN");
+        modelo.addColumn("Contacto");
+        modelo.addColumn("Telefono");
+        modelo.addColumn("Tipo de Proveedor");
+        modelo.addColumn("Email");
+        modelo.addColumn("Limite");
+        modelo.addColumn("Saldo");
+        try{
+            CallableStatement cmd = conectar().prepareCall("select * from dbo.SaldoProveedor("+a+")");
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next()){
+                Object dato[] = new Object[8];
+                for(int i = 0; i<8; i++){
+                    dato[i] = rs.getString(i+1);
+                }
+                modelo.addRow(dato);
+            }
+            
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return modelo;
+    }
+
 }

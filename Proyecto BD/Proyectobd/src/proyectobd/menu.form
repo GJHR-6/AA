@@ -23,37 +23,40 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="form2" max="32767" attributes="0"/>
-                  <Component id="form1" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="form3" max="32767" attributes="0"/>
-                  <Component id="form4" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="form5" min="-2" max="-2" attributes="0"/>
-                  <Component id="form6" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="form2" max="32767" attributes="0"/>
+                          <Component id="form1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="form3" max="32767" attributes="0"/>
+                          <Component id="form4" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="form6" max="32767" attributes="0"/>
+                          <Component id="form5" pref="159" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="form1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="form5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -86,7 +89,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="form5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Formulario 5"/>
+        <Property name="text" type="java.lang.String" value="Saldo del cliente diario"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="form5ActionPerformed"/>
@@ -110,7 +113,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="form4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Formulario 4"/>
+        <Property name="text" type="java.lang.String" value="Consulta de depositos"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="form4ActionPerformed"/>
@@ -118,7 +121,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="form6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Formulario 6"/>
+        <Property name="text" type="java.lang.String" value="Saldo del proveedor"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="form6ActionPerformed"/>

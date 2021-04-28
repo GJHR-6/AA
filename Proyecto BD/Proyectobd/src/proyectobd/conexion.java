@@ -5,9 +5,12 @@
  */
 package proyectobd;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,4 +36,28 @@ public class conexion {
             return null;
         }
 }
+ //   public int 
+    public DefaultTableModel mostrar(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("ArticuloID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Subtotal");
+        
+        try{
+            CallableStatement cmd = conectar().prepareCall("select * from v1 ");
+            ResultSet rs = cmd.executeQuery();
+            while(rs.next()){
+                Object dato[] = new Object[4];
+                for(int i = 0; i<4; i++){
+                    dato[i] = rs.getString(i+1);
+                }
+                modelo.addRow(dato);
+            }
+            
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return modelo;
+    }
 }

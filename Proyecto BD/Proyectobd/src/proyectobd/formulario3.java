@@ -16,11 +16,12 @@ public class formulario3 extends javax.swing.JFrame {
      */
     public formulario3() {
         initComponents();
-        MostrarTablaProductos();
+        
     }
         public void MostrarTablaProductos(){
         conexion pre = new conexion(); 
         tablacuenta.setModel(pre.form3(Integer.parseInt(idCuenta.getText())));
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,16 +52,21 @@ public class formulario3 extends javax.swing.JFrame {
         });
 
         buscar.setText("Buscar");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
 
         tablacuenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tablacuenta);
@@ -107,6 +113,11 @@ public class formulario3 extends javax.swing.JFrame {
     private void idCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idCuentaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idCuentaActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+        MostrarTablaProductos();
+    }//GEN-LAST:event_buscarActionPerformed
 
     /**
      * @param args the command line arguments

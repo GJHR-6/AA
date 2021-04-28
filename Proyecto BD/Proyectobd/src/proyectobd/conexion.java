@@ -76,6 +76,7 @@ public class conexion {
                 Object dato[] = new Object[4];
                 for(int i = 0; i<4; i++){
                     dato[i] = rs.getString(i+1);
+                    System.out.println(dato[i].toString());
                 }
                 modelo.addRow(dato);
             }    

@@ -60,4 +60,28 @@ public class conexion {
         }
         return modelo;
     }
+    
+    public DefaultTableModel form3(int a){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("No. de Cuenta");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Moneda");
+        modelo.addColumn("Saldo");
+        
+        try{
+            
+        CallableStatement entrada = conectar().prepareCall("{call spSelectCuenta("+a+")}");
+        ResultSet rs = entrada.executeQuery();
+        while(rs.next()){
+                Object dato[] = new Object[4];
+                for(int i = 0; i<4; i++){
+                    dato[i] = rs.getString(i+1);
+                }
+                modelo.addRow(dato);
+            }    
+        }catch(SQLException E){
+            E.printStackTrace();
+        }
+        return modelo;
+    }
 }

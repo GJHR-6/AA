@@ -8,27 +8,41 @@ package clases;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
  * @author guill
  */
 public class conexionbd {
-    public void conectar(){
-        //Connection cnn= null;
-    String connectionUrl =
-                "jdbc:sqlserver://localhost:1433;"
-                        + "database=Proyecto;"
-                        + "user=sa;"
-                        + "password=123456;"
-                        + "loginTimeout=30;";
-        try{
-            Connection connection = DriverManager.getConnection(connectionUrl);
-            System.out.println("conexion realizada");
+
+    /* public void insertar(String sql){
+        try {
+            PreparedStatement st = connect.prepareStatement(sql);
+            st.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No Conectado el Error es: " + e.toString());
+            //System.out.println(e.toString());
         }
-        catch(SQLException E){
-            E.printStackTrace();
+    }
+    
+    public ResultSet seleccionar (String sql){
+        try {
+            PreparedStatement st = connect.prepareStatement(sql);
+            result = st.executeQuery();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No Conectado el Error es: " + e.toString());
+            //System.out.println(e.toString());
         }
-      //  return cnn;
-}
+        return result;
+    }
+    
+    public void cerrar(){
+        try {
+            connect.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No Conectado el Error es: " + e.toString());
+           // System.out.println(e.toString());
+        }
+    }*/
 }

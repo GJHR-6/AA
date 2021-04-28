@@ -133,7 +133,7 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         formulario2 f1 = new formulario2();
         f1.setVisible(true);
-        f1.dispose();
+        //f1.dispose();
     }//GEN-LAST:event_form2ActionPerformed
 
     private void form1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_form1ActionPerformed
